@@ -178,12 +178,12 @@ Lower recruitment and training costs - Sustainable workforce management
 
 ### Backend
 
-    cd backend
-    python -m venv venv
-    venv\Scripts\activate
-    pip install -r requirements.txt
-    uvicorn main:app --reload
+Backend 
+cd backend 
+dir main.py
+uvicorn main:app --reload --port 8000
 
+    
 ### Frontend
 
     cd frontend
