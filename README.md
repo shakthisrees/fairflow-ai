@@ -9,225 +9,229 @@ optimizing only distance and delivery speed, FairFlow focuses on
 workforce sustainability using effort scoring, fairness ledger tracking,
 drift detection AI, and ML-based route recommendations.
 
-------------------------------------------------------------------------
+---
 
-## Problem
+# Problem
 
-Modern logistics routing systems optimize: - Distance - Fuel
-consumption - Delivery time
+Modern logistics routing systems optimize:
+
+- Distance
+- Fuel consumption
+- Delivery time
 
 However, they ignore **human fairness**.
 
-This leads to: - Some drivers repeatedly receiving harder routes -
-Driver fatigue and burnout - Reduced morale - High driver attrition
-costs for companies
+This leads to:
 
-FairFlow solves this by introducing **fairness intelligence into
-dispatch systems**.
+- Some drivers repeatedly receiving harder routes
+- Driver fatigue and burnout
+- Reduced morale
+- High driver attrition costs for companies
 
-------------------------------------------------------------------------
+FairFlow solves this by introducing **fairness intelligence into dispatch systems**.
 
-## Solution
+---
 
-FairFlow introduces a **three-layer fairness architecture**:
+# Solution
 
-### 1️⃣ Fairness Ledger
+FairFlow introduces a **three-layer fairness architecture**.
 
-Tracks driver workload history and assigns fairness credits based on
-effort.
+## 1️⃣ Fairness Ledger
 
-### 2️⃣ Fairness Drift AI
+Tracks driver workload history and assigns fairness credits based on effort.
 
-Monitors workload distribution over time using a **7‑day sliding
-window** and detects imbalance.
+## 2️⃣ Fairness Drift AI
 
-### 3️⃣ ML Recommendation Engine
+Monitors workload distribution over time using a **7-day sliding window** and detects imbalance.
 
-Suggests route difficulty assignments while ensuring fairness
-constraints.
+## 3️⃣ ML Recommendation Engine
 
-Together, these layers ensure **fair, transparent, and sustainable route
-assignments**.
+Suggests route difficulty assignments while ensuring fairness constraints.
 
-------------------------------------------------------------------------
+Together, these layers ensure **fair, transparent, and sustainable route assignments**.
 
-## System Architecture
+---
 
-Route Data\
-↓\
-Effort Score Calculation\
-↓\
-Team Average Calculation\
-↓\
-Fairness Ledger (Credits System)\
-↓\
-Fairness Drift Detection AI\
-↓\
-ML Recommendation Engine\
-↓\
+# System Architecture
+
+```
+Route Data
+↓
+Effort Score Calculation
+↓
+Team Average Calculation
+↓
+Fairness Ledger (Credits System)
+↓
+Fairness Drift Detection AI
+↓
+ML Recommendation Engine
+↓
 Final Route Assignment
+```
 
-------------------------------------------------------------------------
+---
 
-## Key Features
+# Key Features
 
--   Effort-based route difficulty scoring
--   Fairness credit ledger system
--   Sliding-window fairness drift detection
--   AI-based route recommendation
--   Explainable route assignment decisions
--   Driver feedback integration
--   Real-time fairness monitoring
+- Effort-based route difficulty scoring
+- Fairness credit ledger system
+- Sliding-window fairness drift detection
+- AI-based route recommendation
+- Explainable route assignment decisions
+- Driver feedback integration
+- Real-time fairness monitoring
 
-------------------------------------------------------------------------
+---
 
-## Tech Stack
+# Tech Stack
 
-### Backend
+## Backend
 
--   Python
--   FastAPI
--   SQLAlchemy
--   JWT Authentication
+- Python
+- FastAPI
+- SQLAlchemy
+- JWT Authentication
 
-### Frontend
+## Frontend
 
--   React
--   Vite
--   JavaScript
--   CSS
+- React
+- Vite
+- JavaScript
+- CSS
 
-### AI / ML
+## AI / ML
 
--   Rule-based explainable ML
--   Effort scoring model
--   Fairness drift detection algorithm
+- Rule-based explainable ML
+- Effort scoring model
+- Fairness drift detection algorithm
 
-### Database
+## Database
 
--   SQLite (Development)
--   PostgreSQL (Production Ready)
+- SQLite (Development)
+- PostgreSQL (Production Ready)
 
-------------------------------------------------------------------------
+---
 
-## How It Works
+# Running the Project
 
-### Step 1 --- Collect Route Data
+## Backend
 
-The system collects delivery route features such as: - Apartments -
-Stairs - Heavy packages - Traffic - Weather - Distance
+```bash
+cd backend
+dir main.py
+uvicorn main:app --reload --port 8000
+```
 
-### Step 2 --- Effort Score Calculation
+Backend will run at:
 
-Each route receives an **effort score** representing workload
-difficulty.
+```
+http://localhost:8000
+```
 
-### Step 3 --- Team Average Calculation
+API documentation available at:
 
-The system computes the **average workload across all drivers**.
+```
+http://localhost:8000/docs
+```
 
-### Step 4 --- Fairness Ledger Update
+---
 
-Drivers earn or spend **fairness credits** based on how their workload
-compares to the team average.
+## Frontend
 
-### Step 5 --- Fairness Drift Detection
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
-The AI monitors the **last 7 days of workload distribution** using a
-sliding window to detect imbalance.
+Frontend will run at:
 
-### Step 6 --- ML Recommendation
+```
+http://localhost:5173
+```
 
-The ML module suggests the best driver‑route pairing while maintaining
-fairness.
+---
 
-### Step 7 --- Final Route Assignment
+# Example Scenario
 
-Routes are assigned ensuring **balanced workload across the team**.
+## Without FairFlow
 
-------------------------------------------------------------------------
+Driver A repeatedly receives apartment-heavy routes while Driver B receives easier suburban routes.
 
-## Example Scenario
+Result:
 
-### Without FairFlow
+- Driver A becomes overloaded
+- Burnout occurs
+- Driver resigns
 
-Driver A repeatedly receives apartment-heavy routes while Driver B
-receives easier suburban routes.
+## With FairFlow
 
-Result: - Driver A becomes overloaded - Burnout occurs - Driver resigns
+- System tracks workload history
+- Detects fairness drift
+- Redistributes routes fairly
 
-### With FairFlow
+Result:
 
--   System tracks workload history
--   Detects fairness drift
--   Redistributes routes fairly
+- Balanced workload
+- Reduced burnout
+- Higher driver retention
 
-Result: - Balanced workload - Reduced burnout - Higher driver retention
+---
 
-------------------------------------------------------------------------
+# Business Impact
 
-## Business Impact
+Using FairFlow, logistics companies can achieve:
 
-Using FairFlow, logistics companies can achieve: - Reduced driver
-attrition - Improved driver morale - Transparent route assignments -
-Lower recruitment and training costs - Sustainable workforce management
+- Reduced driver attrition
+- Improved driver morale
+- Transparent route assignments
+- Lower recruitment and training costs
+- Sustainable workforce management
 
-------------------------------------------------------------------------
+---
 
-## Installation
+# Project Structure
 
-### Backend
+```
+fairflow
+│
+├── backend
+│   ├── main.py
+│   ├── models.py
+│   ├── logic.py
+│   ├── fairness_drift.py
+│   ├── ml_recommendation.py
+│   └── database.py
+│
+├── frontend
+│   ├── src
+│   ├── components
+│   └── pages
+│
+├── assets
+│
+├── README.md
+├── requirements.txt
+└── .gitignore
+```
 
-   cd backend 
-   dir main.py
-   uvicorn main:app --reload --port 8000
+---
 
-    
-### Frontend
-
-    cd frontend
-    npm install
-    npm run dev
-
-------------------------------------------------------------------------
-
-## API Documentation
-
-After starting the backend server: http://localhost:8000/docs
-
-------------------------------------------------------------------------
-
-## Project Structure
-
-    fairflow/
-    │
-    ├── backend/
-    │   ├── main.py
-    │   ├── models.py
-    │   ├── logic.py
-    │   ├── fairness_drift.py
-    │   ├── ml_recommendation.py
-    │   └── database.py
-    │
-    ├── frontend/
-    │   ├── src/
-    │   ├── components/
-    │   └── pages/
-    │
-    └── README.md
-
-------------------------------------------------------------------------
-
-## Innovation
+# Innovation
 
 FairFlow introduces **fairness memory** into logistics dispatch systems.
 
-Traditional systems ask: "What is the fastest route?"
+Traditional systems ask:
 
-FairFlow asks: **"What is the fairest workload over time?"**
+> "What is the fastest route?"
 
-------------------------------------------------------------------------
+FairFlow asks:
 
-## License
+> **"What is the fairest workload over time?"**
+
+---
+
+# License
 
 MIT License
