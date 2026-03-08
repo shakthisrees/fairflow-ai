@@ -178,10 +178,9 @@ Lower recruitment and training costs - Sustainable workforce management
 
 ### Backend
 
-Backend 
-cd backend 
-dir main.py
-uvicorn main:app --reload --port 8000
+   cd backend 
+   dir main.py
+   uvicorn main:app --reload --port 8000
 
     
 ### Frontend
